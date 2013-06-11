@@ -3,10 +3,6 @@
 <%= link_to 'Add Article', {:controller => 'users',
 	 :action =>'add_article'} %>
 <% end %>	 
-<ul class="thumbnails" background="red">
-	<li class="span11">
-	<div class="thumbnail">
-
 		
 	<% @articles.each do |article| %>
 	<div class="media">
@@ -31,7 +27,3 @@
 	</div>
 	</br>
 <% end %>
-	
-		</div>
-	</li>
-</ul>

@@ -3,7 +3,7 @@
 	 :action =>'main'} %>
 <%= link_to 'Add Article', {:controller => 'users',
 	 :action =>'add_article'} %>
-	 
+	 <div>
 <h2><%= @article.heading %></h2>
 <p><%= @article.content %></p>by:
 <%= @article.author %>
