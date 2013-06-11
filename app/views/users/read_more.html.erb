@@ -1,0 +1,39 @@
+
+<%= link_to '<<BACK', {:controller => 'users',
+	 :action =>'main'} %>
+<%= link_to 'Add Article', {:controller => 'users',
+	 :action =>'add_article'} %>
+	 
+<h2><%= @article.heading %></h2>
+<p><%= @article.content %></p>by:
+<%= @article.author %>
+<% if can? :update, :all%>
+<%= link_to("Edit", {:action => 'edit_article', :id => @article.id})%>
+<%= link_to("Delete", {:action => 'delete_article', :id => @article.id})%>
+<% end %>
+<%= @article.like_no%>
+<%= link_to("Like", {:action => 'like', :id => @article.id})%>
+
+<%= form_for(:comments, :url => {:action => 'create_comment', :id => @article.id}) do |f| %>
+	<table summary="Edit User" >
+		<tr>
+			<td><%= f.text_area(:matter, :size => "50x5")%></td>
+		</tr>
+		</table>
+		<div class="form_buttons" >
+			<%= submit_tag("Comment")%>
+		</div>
+<% end %>			
+
+<div class="Comments">
+<span class="label label-important">Comments:</span>
+<% @comment.each do |comment| %>
+	
+	<h5>@<%= current_user.name %>:</h5>
+	<p><%= comment.matter %></p><%= comment.created_at%>
+	<%= comment.like_comment_no%>
+	<%= link_to("Like", {:action => 'like', :id => @article.id})%>
+	<%= link_to("Delete", {:action => 'destroy_comment', :id => comment.id})%>
+	</br>
+	
+<% end %>

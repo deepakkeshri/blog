@@ -1,0 +1,15 @@
+<div class="page-header" background="red">
+<ul class="nav nav-pills">
+	<li class="active">
+		<a href="/users/main">HOME</a>
+	
+	<li><a href="/users/about">About </a></li>
+	<li><a href="/users/contact">Contact </a></li>
+	<li><% if user_signed_in? %>
+		<%= link_to("Profile", {:controller => 'users',:action => 'show', :id=> current_user.id})%></li>
+	<p align=right>Signed in as <%= current_user.name%>.Not you?
+		<%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></p>
+	<% end %>
+	</li>
+</ul>
+</div>

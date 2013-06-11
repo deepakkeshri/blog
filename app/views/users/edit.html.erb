@@ -1,0 +1,52 @@
+<div align="left">
+<%= link_to("<<BACK", {:controller => 'users',:action => 'list'})%>
+</div>
+<div class="Edit User">
+	<h2 align="center" color="blue">Edit User</h2>
+	
+	<%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+	<table summary="Edit Profile" align="center">
+		<tr>
+			<th>Name:</th>
+			<td><%= f.text_field(:name)%></td>
+		</tr>
+		<tr>
+			<th>Username:</th>
+			<td><%= f.text_field(:username)%></td>
+		</tr>
+		<tr>
+			<th>Sex:</th>
+			<td><%= f.text_field(:sex)%></td>
+		</tr>
+		<tr>
+			<th>Dob:</th>
+			<td><%= f.text_field(:dob)%></td>
+		</tr>
+		<tr>
+			<th>Work:</th>
+			<td><%= f.text_field(:work)%></td>
+		</tr>
+		<tr>
+			<th>Mobile No.</th>
+			<td><%= f.text_field(:mobile)%></td>
+		</tr>
+		<tr>
+			<th>Address:</th>
+			<td><%= f.text_area(:address,:size => "40x5")%></td>
+		</tr>
+		<tr>
+			<th>Email Id:</th>
+			<td><%= f.text_field(:email)%></td>
+		</tr>
+		
+		<tr>
+			<th>Password:</th>
+			<td><%= f.password_field(:password)%></td>
+		</tr>
+		
+		</table>
+		<div class="form_buttons" align="center">
+			<%= submit_tag("Save")%>
+		</div>
+	
+	<% end %>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    "users", :media => "all" %>
+  <%= javascript_include_tag "users" %>
+  <%= csrf_meta_tags %>
+
+<%= render('layouts/header')%>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+
+<div class='conatiner'>
+	<div class="row">
+		<div class="span4" width="20">Write Stuff Here.
+			
+			
+			</div>
+		<div class="span11 "><%= yield %></div>
+		<div class="span3">For Stuffs.</div>
+	</div>
+</div>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<%= render('layouts/footer')%>
+</body>
+
+</html>

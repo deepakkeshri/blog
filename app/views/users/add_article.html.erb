@@ -1,0 +1,27 @@
+<div align="left">
+<%= link_to("<<BACK", {:controller => 'users',:action => 'main'})%>
+</div>
+<div class="Edit User">
+	<h2 align="center" color="blue">Post Article</h2>
+	
+	<%= form_for(:article, :url => {:action => 'create_article'}) do |f| %>
+	<table summary="Edit User" align="center">
+		<tr>
+			<th>Heading</th>
+			<td><%= f.text_field(:heading)%></td>
+		</tr>
+		<tr>
+			<th>Content</th>
+			<td><%= f.text_area(:content, :size => "40x5")%></td>
+		</tr>
+		<tr>
+			<th>Author</th>
+			<td><%= f.text_field(:author)%></td>
+		</tr>
+		
+		</table>
+		<div class="form_buttons" align="center">
+			<%= submit_tag("Post")%>
+		</div>
+	
+	<% end %>

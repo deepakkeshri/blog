@@ -1,0 +1,37 @@
+
+<% if can? :add_article, :all%>
+<%= link_to 'Add Article', {:controller => 'users',
+	 :action =>'add_article'} %>
+<% end %>	 
+<ul class="thumbnails" background="red">
+	<li class="span11">
+	<div class="thumbnail">
+
+		
+	<% @articles.each do |article| %>
+	<div class="media">
+  <a class="pull-left" href="#">
+    <img class="media-object" data-src="holder.js/64x64">
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading"><%= article.heading %></h4>
+		<p><blockquote class="pul-right"> <%= article.content %></blockquote> <%= link_to("Read more", 
+		{:action => 'read_more', :id => article.id})%></p>by:
+		<%= article.author %>
+		<% if can? :update_article, :all%>
+		<%= link_to("Edit", {:action => 'edit_article', :id => article.id})%>
+		<%= link_to("Delete", {:action => 'delete_article', :id => article.id})%>
+		<% end %>
+		<%= article.like_no%>
+		<%= link_to("Like", {:action => 'like_no', :id => article.id})%>
+		<%= article.comment_no%>
+		<%= link_to("Comment", {:action => 'read_more', :id => article.id})%>
+	
+		</div>
+	</div>
+	</br>
+<% end %>
+	
+		</div>
+	</li>
+</ul>

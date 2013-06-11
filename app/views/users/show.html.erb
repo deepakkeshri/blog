@@ -1,0 +1,49 @@
+<div class="List Users" align="center">
+	<h2 align="center">Showing User</h2>
+
+	<table summary="User Detail" border="1" align="center">
+		<tr>
+			<th>Name:</th>
+			<td><%= @user.name%></td>
+		</tr>
+		
+		<tr>
+			<th>Username:</th>
+			<td><%= @user.username%></td>
+		</tr>
+		<tr>
+			<th>Sex:</th>
+			<td><%= @user.sex%></td>
+		</tr>
+		<tr>
+			<th>Dob:</th>
+			<td><%= @user.dob%></td>
+		</tr>
+		<tr>
+			<th>Work:</th>
+			<td><%= @user.work%></td>
+		</tr>
+		<tr>
+			<th>Mobile:</th>
+			<td><%= @user.mobile%></td>
+		</tr>
+		<tr>
+			<th>Address:</th>
+			<td><%= @user.address%></td>
+		</tr>
+		<tr>
+			<th>Email Id:</th>
+			<td><%= @user.email%></td>
+		</tr>
+		<tr>
+			<th>Created at:</th>
+			<td><%= @user.created_at%></td>
+		</tr>
+		<tr>
+			<th>Last Updated at:</th>
+			<td><%= @user.updated_at%></td>
+		</tr>
+		</table>
+		<%= link_to 'Edit Profile', {:controller => 'users',
+			 :action =>'edit', :id => @user.id} %>
+</div>
