@@ -10,7 +10,6 @@ group :development do
 end
 group :production do
   gem 'pg'
-  gem 'rails\_12factor'
 end
 gem 'devise'
 gem 'cancan'
