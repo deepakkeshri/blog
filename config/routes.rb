@@ -1,8 +1,12 @@
 Blog::Application.routes.draw do
   #get "users/home"
-  root :to => "users#home"
+  root :to => "users#main"
   devise_for :users
-
+  as :user do
+  get "users/sign_up" => "devise/users#sign_up"
+  
+  get "users/sign_in" => "devise/users#sign_in"
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

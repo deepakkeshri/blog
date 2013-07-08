@@ -10,4 +10,7 @@ class ApplicationController < ActionController::Base
   "/users/main"
   end
   
+  def after_sign_out_path_for(resource)
+     "/users/main"
+  end
 end

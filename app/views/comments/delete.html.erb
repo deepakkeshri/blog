@@ -1,0 +1,12 @@
+<div align="left">
+<%= link_to("<<BACK", {:action => 'read_more', :id => @article.id})%>
+</div>
+<div class="Delete Article">
+	<%= form_for(:comment, :url => {:action => 'destroy_comment', :id => @comment.id }) do |f| %>
+	<p align="center">Are you sure you want to delete "<%= @comment.matter%>"</p>
+	
+	<div align="center">
+		<%= submit_tag("Delete Comment")%>
+	</div>
+<% end %>
+</div>

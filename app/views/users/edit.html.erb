@@ -1,10 +1,10 @@
 <div align="left">
-<%= link_to("<<BACK", {:controller => 'users',:action => 'list'})%>
+<%= link_to("<<BACK", {:controller => 'users',:action => 'show', :id => current_user.id})%>
 </div>
-<div class="Edit User">
-	<h2 align="center" color="blue">Edit User</h2>
+<div class="Edit Profile">
+	<h2 align="center" color="red">Edit Profile</h2>
 	
-	<%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+	<%= form_for(:user, :url => {:action => 'update', :id => @current_user.id}) do |f| %>
 	<table summary="Edit Profile" align="center">
 		<tr>
 			<th>Name:</th>
@@ -16,15 +16,26 @@
 		</tr>
 		<tr>
 			<th>Sex:</th>
-			<td><%= f.text_field(:sex)%></td>
+			<td>Male<%= f.radio_button(:sex,"Male") %>
+			Female<%= f.radio_button(:sex, "Female") %></td>
+			
 		</tr>
 		<tr>
 			<th>Dob:</th>
-			<td><%= f.text_field(:dob)%></td>
+			<td><%= f.select :dob,[['1','1'],['2','2'],['3','3'],
+			['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],
+			['9','9'],['10','10'],['11','11']] %>
+			<%= f.select :dob,[['1','1'],['2','2'],['3','3'],
+			['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],
+			['9','9'],['10','10'],['11','11']] %>
+			
+			<%= f.select :dob,[['1990','1990'],['1991','1991'],['1992','1992'],['1993','1993'],
+			['1994','1994'],['1995','1995'],['1996','1996'],['1997','1997'],['1998','1998'],
+			['1999','1999'],['2000','2000'],['2001','2001']] %></td>
 		</tr>
 		<tr>
 			<th>Work:</th>
-			<td><%= f.text_field(:work)%></td>
+			<td><%= f.select :work,[['Student','Student'],['Professional','Professional'],['Other','Other']] %></td>
 		</tr>
 		<tr>
 			<th>Mobile No.</th>

@@ -44,6 +44,8 @@
 			<td><%= @user.updated_at%></td>
 		</tr>
 		</table>
+		<% if can? :update, :all%>
 		<%= link_to 'Edit Profile', {:controller => 'users',
 			 :action =>'edit', :id => @user.id} %>
+		<% end %>
 </div>

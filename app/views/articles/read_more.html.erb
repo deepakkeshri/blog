@@ -1,20 +1,24 @@
 
 <%= link_to '<<BACK', {:controller => 'users',
 	 :action =>'main'} %>
-<%= link_to 'Add Article', {:controller => 'users',
+	 <% if can? :update_article, :all%>
+<%= link_to 'Add Article', {:controller => 'articles',
 	 :action =>'add_article'} %>
-	 <div>
+	 <% end %>
+	 <div id="main_block">
 <h2><%= @article.heading %></h2>
 <p><%= @article.content %></p>by:
-<%= @article.author %>
-<% if can? :update, :all%>
+<%= @article.author %><%= @article.created_at%>
+<% if can? :update_article, :all%>
 <%= link_to("Edit", {:action => 'edit_article', :id => @article.id})%>
 <%= link_to("Delete", {:action => 'delete_article', :id => @article.id})%>
 <% end %>
 <%= @article.like_no%>
-<%= link_to("Like", {:action => 'like', :id => @article.id})%>
-
-<%= form_for(:comments, :url => {:action => 'create_comment', :id => @article.id}) do |f| %>
+<%= link_to("Like", {:action => 'like_no', :id => @article.id})%>
+<%= @article.comment_no%>
+Comments
+	
+<%= form_for(:comments, :url => {:controller=> 'comments',:action => 'create_comment', :id => @article.id}) do |f| %>
 	<table summary="Edit User" >
 		<tr>
 			<td><%= f.text_area(:matter, :size => "50x5")%></td>
@@ -31,9 +35,13 @@
 	
 	<h5>@<%= current_user.name %>:</h5>
 	<p><%= comment.matter %></p><%= comment.created_at%>
-	<%= comment.like_comment_no%>
-	<%= link_to("Like", {:action => 'like', :id => @article.id})%>
-	<%= link_to("Delete", {:action => 'destroy_comment', :id => comment.id})%>
+	
+	<% if can? :update_article, :all%>
+	
+	
+	<%= link_to("Delete", {:controller=> 'comments',:action => 'destroy_comment', :id => comment.id})%>
+	<% end %>
 	</br>
 	
 <% end %>
+</div>

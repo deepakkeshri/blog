@@ -1,5 +1,5 @@
 <div align="left">
-<%= link_to("BACK", {:action => 'main'})%>
+<%= link_to("<<BACK", {:action => 'read_more', :id => @article.id})%>
 </div>
 <div class="Delete Article">
 	<%= form_for(:article, :url => {:action => 'destroy_article', :id => @article.id }) do |f| %>

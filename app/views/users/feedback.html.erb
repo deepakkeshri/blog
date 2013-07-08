@@ -1,27 +1,26 @@
-<div align="left">
-<%= link_to("<<BACK", {:controller => 'users',:action => 'main'})%>
-</div>
-<div class="Edit User">
-	<h2 align="center" color="blue">Post Article</h2>
+<div class="Feedback">
+	<h2 align="center" color="red">Write to me</h2>
 	
-	<%= form_for(:user, :url => {:action => 'feedback'}) do |f| %>
-	<table summary="Edit User" align="center">
+	<%= form_for(:user, :url => {:action => 'write'}) do |f| %>
+	<table summary="Edit Profile" align="center">
 		<tr>
-			<th>Heading</th>
-			<td><%= f.text_field(:heading)%></td>
+			<th>Name:</th>
+			<td><%= f.text_field(:name)%></td>
+		</tr>
+		
+		<tr>
+			<th>Email Id:</th>
+			<td><%= f.text_field(:email)%></td>
 		</tr>
 		<tr>
-			<th>Content</th>
-			<td><%= f.text_area(:content, :size => "40x5")%></td>
+			<th>Content:</th>
+			<td><%= f.text_area(:address, :size => "40x5")%></td>
 		</tr>
-		<tr>
-			<th>Author</th>
-			<td><%= f.text_field(:author)%></td>
-		</tr>
+		
 		
 		</table>
 		<div class="form_buttons" align="center">
-			<%= submit_tag("Post")%>
+			<%= submit_tag("Submit")%>
 		</div>
 	
 	<% end %>

@@ -1,19 +1,36 @@
-<div class="page-header", style="color:#ff0000 ; background:#553456 ; padding:10px; margin:0px">
-	<h>Welcome to my Blog!</h>
-	<p></p>
-
-
+<diV style="color:#ff0000 ; background:#111111 ; padding:5px; margin:0px">
 <ul class="nav nav-pills">
 	<li class="active">
 		<a href="/users/main">HOME</a>
 	
 	<li><a href="/users/about">About </a></li>
 	<li><a href="/users/contact">Contact </a></li>
-	<li><% if user_signed_in? %>
-		<%= link_to("Profile", {:controller => 'users',:action => 'show', :id=> current_user.id})%></li>
-	<p align=right>Signed in as <%= current_user.name%>.Not you?
-		<%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></p>
-	<% end %>
+	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/users/contact">
+		Gallery<b class="caret"></b></a>
+		<ul class="dropdown-menu">
+			<a href="/users/about">Recent ></a>
+			<a href="/users/contact">Videos </a>
+		</ul>
 	</li>
+	<li><a href="/users/feedback">Feedback</a></li>
+<p align=right>
+	
+<% if user_signed_in? %>
+<% if can? :read, :all%>
+<%= link_to("Profile", {:controller => 'users',:action => 'show', :id=> current_user.id})%></li>
+Signed in as <%= current_user.name%>.Not you?
+<%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></p>
+<% end %>
+<%else%>
+<p align=right><%= link_to 'Sign in', :controller => 'users', :action =>'sign_in' %> or
+<%= link_to 'Sign up', :controller => 'users', :action =>'sign_up' %></p>
+<% end %>
 </ul>
+</div>
+
+<div class="page-header", style="color:#ff0000 ; background:#454545; height:100px; padding:10px; margin:0px">
+	<h2>Welcome to my Blog!</h2>
+		
+		
+		
 </div>
